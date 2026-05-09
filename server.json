@@ -7,7 +7,7 @@
   "packages": [
     {
       "registryType": "pypi",
-      "identifier": "genome-mcp",
+      "identifier": "genome-industrial-intelligence",
       "version": "0.1.0",
       "transport": {
         "type": "stdio"
