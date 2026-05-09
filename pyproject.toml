@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "genome-mcp"
+version = "0.1.0"
+description = "Industrial system intelligence for AI agents. Conviction scores, archetypes, and operational diligence for 10,000+ industrial companies from public signals."
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [
+  {name = "Ryan Cahalane", email = "rdcahalane@gmail.com"},
+]
+keywords = ["mcp", "industrial", "manufacturing", "finance", "AI", "signals", "conviction"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Topic :: Office/Business :: Financial :: Investment",
+]
+dependencies = [
+  "httpx>=0.24.0",
+  "mcp>=1.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/rdcahalane/genome-mcp"
+Repository = "https://github.com/rdcahalane/genome-mcp"
+
+[project.scripts]
+genome-mcp = "genome_mcp:main"
+
+[tool.setuptools]
+py-modules = ["genome_mcp", "langchain_tools"]

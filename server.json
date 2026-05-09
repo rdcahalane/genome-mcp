@@ -1,0 +1,30 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.rdcahalane/genome-industrial-intelligence",
+  "title": "Genome Industrial Intelligence",
+  "description": "Industrial system intelligence for AI agents. Conviction scores, archetypes, and operational diligence for 10,000+ industrial companies from public signals. Built for PE firms, M&A advisors, and industrial AI agents.",
+  "version": "0.1.0",
+  "packages": [
+    {
+      "registryType": "pypi",
+      "identifier": "genome-mcp",
+      "version": "0.1.0",
+      "transport": {
+        "type": "stdio"
+      },
+      "env": [
+        {
+          "name": "GENOME_COMMERCIAL_KEY",
+          "description": "API key for Genome Industrial Intelligence. Purchase at genomestudio.vercel.app/dealmakers",
+          "required": true
+        }
+      ]
+    }
+  ],
+  "remotes": [
+    {
+      "transportType": "streamable-http",
+      "url": "https://genome-api-production.up.railway.app/mcp"
+    }
+  ]
+}

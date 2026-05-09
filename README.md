@@ -1,3 +1,4 @@
+<!-- mcp-name: io.github.rdcahalane/genome-industrial-intelligence -->
 # Genome Industrial Intelligence — MCP Server
 
 Industrial system intelligence for AI agents. Conviction scores, archetypes, and operational diligence for 10,000+ industrial companies from public signals. Built for PE firms, M&A advisors, and AI agents doing industrial research.
