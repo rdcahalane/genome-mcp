@@ -1,0 +1,96 @@
+[
+  {
+    "type": "function",
+    "function": {
+      "name": "get_industrial_signal",
+      "description": "Get the full investment signal for an industrial ticker. Returns conviction score, archetype (constrained/oscillatory/fragile/resilient/saturated/decoupled), trajectory (improving/stable/deteriorating), ECL and PFSL adjustments, regime multiplier, supply chain risk, options structure recommendation, and signal notes. Use this before any investment discussion about an industrial company.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "ticker": {
+            "type": "string",
+            "description": "Stock ticker symbol, e.g. HON, CAT, GE, ROK, EMR. Will be uppercased automatically."
+          },
+          "industry": {
+            "type": "string",
+            "description": "Optional industry hint to improve ECL weighting. Examples: hvac, auto, aerospace_defense, utilities, energy_midstream, financials, tech, reit. Omit for default industrial engine."
+          }
+        },
+        "required": ["ticker"]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "screen_industrial_signals",
+      "description": "Screen all tracked industrial tickers by conviction score, signal type, or archetype. Returns a ranked list of top signals — use this to find the best-positioned industrials or identify high-conviction opportunities across the universe.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "description": "Maximum number of results to return. Default 20, max 100.",
+            "default": 20
+          },
+          "min_conviction": {
+            "type": "number",
+            "description": "Minimum conviction threshold. Range -1.0 to +1.0. Default 0.25. Use 0.50 for BUY-only, 0.72 for STRONG_BUY only.",
+            "default": 0.25
+          },
+          "signal": {
+            "type": "string",
+            "description": "Filter by signal type: STRONG_BUY, BUY, WATCH, NEUTRAL, SELL, STRONG_SELL, EARLY_WARNING. Omit to return all.",
+            "enum": ["STRONG_BUY", "BUY", "WATCH", "NEUTRAL", "SELL", "STRONG_SELL", "EARLY_WARNING"]
+          },
+          "archetype": {
+            "type": "string",
+            "description": "Filter by archetype: constrained, oscillatory, fragile, resilient, saturated, decoupled. Omit to return all.",
+            "enum": ["constrained", "oscillatory", "fragile", "resilient", "saturated", "decoupled"]
+          }
+        },
+        "required": []
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "get_macro_regime",
+      "description": "Get the current External Constraint Layer (ECL) macro regime and all 7 module scores: CPI (commodity cost pressure), EPI (energy), LPI (labor), DCSI (demand/channel stress), DLPS (decision latency), ROC (regime multiplier applied to all conviction scores), and DCS (data confidence). Use this to understand macro tailwinds and headwinds before interpreting individual signals.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "industry": {
+            "type": "string",
+            "description": "Optional industry for sector-specific ECL weights. Examples: hvac, auto, utilities, energy_midstream, financials, tech, reit, plate_steel, infrastructure. Omit for general industrial regime."
+          }
+        },
+        "required": []
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "get_diligence_report",
+      "description": "Get a full industrial operational diligence brief for a company. Returns a 6-section structured analysis: (1) operational genome fingerprint, (2) leadership and org signals, (3) supply chain risk, (4) pre-financial signal layer from SEC EDGAR, (5) comparable companies by archetype similarity, (6) priority diligence questions for deal teams. Use for M&A diligence, PE platform assessments, or deep-dive company research.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "ticker": {
+            "type": "string",
+            "description": "Stock ticker symbol, e.g. HON, CAT, ROK, EMR, GE."
+          },
+          "format": {
+            "type": "string",
+            "description": "Response format. 'full' returns complete JSON report (default). 'json_compact' returns only conviction, risk flags, diligence questions, and comparable tickers — more token-efficient for agent use.",
+            "enum": ["full", "json_compact"],
+            "default": "full"
+          }
+        },
+        "required": ["ticker"]
+      }
+    }
+  }
+]

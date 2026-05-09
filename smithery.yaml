@@ -1,0 +1,84 @@
+# Smithery MCP Server Configuration
+# https://smithery.ai — publish with: smithery publish
+
+name: genome-industrial-intelligence
+version: "1.0.0"
+description: >
+  Industrial system intelligence for AI agents. Identifies behavioral fingerprints
+  (archetype, trajectory, conviction) for 10,000+ industrial companies from public signals.
+  Includes operational diligence reports, macro regime, supply chain risk, and options signals.
+  Built for PE firms, M&A advisors, and industrial AI tools.
+
+author: Axiom Manufacturing Systems
+contact: ryan@axiomsystems.io
+homepage: https://genomestudio.vercel.app/dealmakers
+license: commercial
+
+entry: mcp/genome_mcp.py
+
+tools:
+  - name: get_signal
+    description: >
+      Full investment signal for a ticker: archetype (oscillatory/constrained/fragile/resilient/etc),
+      trajectory (improving/stable/deteriorating), conviction score (−1 to +1), and signal
+      (STRONG_BUY / BUY / WATCH / NEUTRAL / SELL / STRONG_SELL). Includes ECL macro pressure scores.
+    free: false
+
+  - name: get_diligence
+    description: >
+      Full 6-section industrial diligence brief: conviction, operational signals (job postings,
+      OSHA safety grade, EPA environmental grade, SI-addressability), leadership stability,
+      cross-engine risk flags, peer comparables, and 5 AI-generated diligence questions.
+      Use format=json_compact for token-efficient agent consumption.
+    free: false
+
+  - name: get_screener
+    description: >
+      Top conviction signals across all tracked tickers. Returns ranked list by conviction score.
+      Useful for finding industrials with STRONG_BUY or STRONG_SELL signals.
+    free: false
+
+  - name: get_ecl
+    description: >
+      Live macro regime for an industry. Returns External Constraint Layer scores:
+      commodity pressure (CPI), energy pressure (EPI), labor pressure (LPI),
+      demand stress (DCSI), regime multiplier (ROC), and data confidence (DCS).
+    free: false
+
+  - name: get_horizons
+    description: >
+      3M / 6M / 12M multi-horizon conviction divergence for a ticker.
+      Different from single-horizon signal — captures time-varying risk.
+    free: false
+
+  - name: get_supply_chain
+    description: Upstream supply chain risk signals for a ticker.
+    free: false
+
+  - name: get_pfsl
+    description: >
+      Pre-financial signal layer (PFSL) from SEC EDGAR quarterly data.
+      Operational stress, demand signals, capex trends, and narrative shift scores.
+    free: false
+
+  - name: ask_genome
+    description: >
+      Natural language Q&A over Genome signal data. Ask questions like
+      "Which industrials are most exposed to tariff pressure?" or
+      "What's the investment thesis on ROK right now?"
+    free: false
+
+config:
+  env:
+    GENOME_COMMERCIAL_KEY:
+      description: Your Genome API key (gk_live_*). Purchase at genomestudio.vercel.app/dealmakers.
+      required: true
+      secret: true
+    GENOME_API_URL:
+      description: Genome API base URL. Default is the production Railway endpoint.
+      required: false
+      default: https://genome-api-production.up.railway.app
+    ANTHROPIC_API_KEY:
+      description: Required only for ask_genome tool.
+      required: false
+      secret: true
