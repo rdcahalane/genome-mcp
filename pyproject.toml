@@ -3,7 +3,7 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "genome-mcp"
+name = "genome-industrial-intelligence"
 version = "0.1.0"
 description = "Industrial system intelligence for AI agents. Conviction scores, archetypes, and operational diligence for 10,000+ industrial companies from public signals."
 readme = "README.md"
@@ -30,6 +30,7 @@ Repository = "https://github.com/rdcahalane/genome-mcp"
 
 [project.scripts]
 genome-mcp = "genome_mcp:main"
+genome-industrial-intelligence = "genome_mcp:main"
 
 [tool.setuptools]
 py-modules = ["genome_mcp", "langchain_tools"]
