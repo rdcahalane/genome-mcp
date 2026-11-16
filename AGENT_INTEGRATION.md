@@ -2,9 +2,9 @@
 
 Industrial Genome exposes live signal intelligence for industrial companies as AI-native tools. Any agent — Claude, GPT-4, LangChain, custom — can query conviction scores, macro regime, screener results, and diligence reports in real time.
 
-**API base:** `https://genome-api-production.up.railway.app`  
+**API base:** `https://genome-api.civops.io`  
 **Auth:** `X-API-Key: <your-key>` (internal) or `Authorization: Bearer gk_live_<your-key>` (commercial)  
-**Keys:** [genome.axiomsystems.io/api-keys](https://genome.axiomsystems.io/api-keys)
+**Keys:** [studio.civops.io/dealmakers](https://studio.civops.io/dealmakers)
 
 ---
 
@@ -43,7 +43,7 @@ import httpx
 
 client = OpenAI()
 GENOME_KEY = os.environ["GENOME_API_KEY"]
-GENOME_BASE = "https://genome-api-production.up.railway.app"
+GENOME_BASE = "https://genome-api.civops.io"
 
 with open("mcp/openai_functions.json") as f:
     tools = json.load(f)
@@ -169,31 +169,31 @@ Every endpoint accepts `X-API-Key` in the header or `Authorization: Bearer gk_li
 ```bash
 # Single ticker signal
 curl -H "X-API-Key: $GENOME_API_KEY" \
-  https://genome-api-production.up.railway.app/v1/signal/HON
+  https://genome-api.civops.io/v1/signal/HON
 
 # Screener — top 10 BUY signals
 curl -H "X-API-Key: $GENOME_API_KEY" \
-  "https://genome-api-production.up.railway.app/v1/screener?signal=BUY&limit=10"
+  "https://genome-api.civops.io/v1/screener?signal=BUY&limit=10"
 
 # Macro regime
 curl -H "X-API-Key: $GENOME_API_KEY" \
-  https://genome-api-production.up.railway.app/v1/ecl
+  https://genome-api.civops.io/v1/ecl
 
 # Multi-horizon (3M/6M/12M)
 curl -H "X-API-Key: $GENOME_API_KEY" \
-  https://genome-api-production.up.railway.app/v1/signal/CAT/horizons
+  https://genome-api.civops.io/v1/signal/CAT/horizons
 
 # Batch signals (up to 500 tickers)
 curl -X POST -H "X-API-Key: $GENOME_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{"tickers":["HON","CAT","GE","ROK","EMR"]}' \
-  https://genome-api-production.up.railway.app/v1/signals/batch
+  https://genome-api.civops.io/v1/signals/batch
 
 # Diligence brief (commercial key required)
 curl -X POST -H "Authorization: Bearer gk_live_your-key" \
   -H "Content-Type: application/json" \
   -d '{"format":"json_compact"}' \
-  https://genome-api-production.up.railway.app/v1/report/ROK
+  https://genome-api.civops.io/v1/report/ROK
 ```
 
 ---
@@ -274,7 +274,7 @@ Genome tools are most useful when the agent combines regime context with individ
 | `/v1/hypotheses` | GET | Signal hypothesis tracking |
 | `/health` | GET | Health check |
 
-Full API reference: `https://genome-api-production.up.railway.app/docs`
+Full API reference: `https://genome-api.civops.io/docs`
 
 ---
 
@@ -286,7 +286,7 @@ Full API reference: `https://genome-api-production.up.railway.app/docs`
 | Pro | $99/mo | 10,000 | All endpoints + diligence |
 | Institutional | $499/mo | Unlimited | All endpoints + batch + priority support |
 
-Get your key: [genome.axiomsystems.io/api-keys](https://genome.axiomsystems.io/api-keys)
+Get your key: [studio.civops.io/dealmakers](https://studio.civops.io/dealmakers)
 
 Commercial keys use `Authorization: Bearer gk_live_<key>` format and unlock `/v1/report/{ticker}`.
 

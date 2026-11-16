@@ -37,7 +37,7 @@ import httpx
 
 # ── Config ─────────────────────────────────────────────────────────────────────
 
-GENOME_API = os.environ.get("GENOME_API_URL", "https://genome-api-production.up.railway.app")
+GENOME_API = os.environ.get("GENOME_API_URL", "https://genome-api.civops.io")
 ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
 
 # Commercial key (gk_live_*) used by external buyers; falls back to internal key

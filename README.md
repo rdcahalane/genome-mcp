@@ -3,7 +3,7 @@
 
 Industrial system intelligence for AI agents. Conviction scores, archetypes, and operational diligence for 10,000+ industrial companies from public signals. Built for PE firms, M&A advisors, and AI agents doing industrial research.
 
-**→ Get an API key:** [genomestudio.vercel.app/dealmakers](https://genomestudio.vercel.app/dealmakers)  
+**→ Get an API key:** [studio.civops.io/dealmakers](https://studio.civops.io/dealmakers)  
 **→ Available on Smithery:** [smithery.ai/servers/rdcahalane/genome-industrial-intelligence](https://smithery.ai/servers/rdcahalane/genome-industrial-intelligence)
 
 ## Tools
@@ -55,7 +55,7 @@ Then add to Claude Desktop config:
       "args": ["-m", "genome_mcp"],
       "env": {
         "GENOME_COMMERCIAL_KEY": "gk_live_<your-key>",
-        "GENOME_API_URL": "https://genome-api-production.up.railway.app"
+        "GENOME_API_URL": "https://genome-api.civops.io"
       }
     }
   }
@@ -87,7 +87,7 @@ tools = get_genome_tools()
 
 ## Pricing
 
-Purchase at [genomestudio.vercel.app/dealmakers](https://genomestudio.vercel.app/dealmakers)
+Purchase at [studio.civops.io/dealmakers](https://studio.civops.io/dealmakers)
 
 | Plan | Price | Lookups |
 |------|-------|---------|

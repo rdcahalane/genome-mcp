@@ -15,7 +15,7 @@ Usage:
 
 Config (environment variables):
     GENOME_API_KEY    — Internal key (X-API-Key header). Falls back to built-in.
-    GENOME_API_URL    — API base URL. Defaults to https://genome-api-production.up.railway.app
+    GENOME_API_URL    — API base URL. Defaults to https://genome-api.civops.io
     GENOME_COMMERCIAL_KEY — Commercial key (gk_live_*). Takes precedence if set.
 """
 
@@ -33,7 +33,7 @@ from pydantic import BaseModel, Field
 # ── Config ─────────────────────────────────────────────────────────────────────
 
 _BASE_URL = os.environ.get(
-    "GENOME_API_URL", "https://genome-api-production.up.railway.app"
+    "GENOME_API_URL", "https://genome-api.civops.io"
 )
 _COMMERCIAL_KEY = os.environ.get("GENOME_COMMERCIAL_KEY", "")
 _INTERNAL_KEY = os.environ.get("GENOME_API_KEY", "")
@@ -558,7 +558,7 @@ def get_genome_tools() -> list[BaseTool]:
 
     Required env vars:
         GENOME_API_KEY     — or GENOME_COMMERCIAL_KEY (gk_live_* format)
-        GENOME_API_URL     — defaults to https://genome-api-production.up.railway.app
+        GENOME_API_URL     — defaults to https://genome-api.civops.io
     """
     return [
         GetIndustrialSignalTool(),

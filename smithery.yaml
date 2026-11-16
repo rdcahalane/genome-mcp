@@ -11,10 +11,10 @@ description: >
 
 author: Axiom Manufacturing Systems
 contact: ryan@axiomsystems.io
-homepage: https://genomestudio.vercel.app/dealmakers
+homepage: https://studio.civops.io/dealmakers
 license: commercial
 
-entry: mcp/genome_mcp.py
+entry: genome_mcp.py
 
 tools:
   - name: get_signal
@@ -71,13 +71,13 @@ tools:
 config:
   env:
     GENOME_COMMERCIAL_KEY:
-      description: Your Genome API key (gk_live_*). Purchase at genomestudio.vercel.app/dealmakers.
+      description: Your Genome API key (gk_live_*). Purchase at studio.civops.io/dealmakers.
       required: true
       secret: true
     GENOME_API_URL:
-      description: Genome API base URL. Default is the production Railway endpoint.
+      description: Genome API base URL. Default is the production endpoint.
       required: false
-      default: https://genome-api-production.up.railway.app
+      default: https://genome-api.civops.io
     ANTHROPIC_API_KEY:
       description: Required only for ask_genome tool.
       required: false
