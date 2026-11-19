@@ -3,7 +3,16 @@
   "name": "io.github.rdcahalane/genome-industrial-intelligence",
   "title": "Genome Industrial Intelligence",
   "description": "Industrial intelligence for AI agents. Conviction scores and diligence for 10,000+ industrials.",
-  "version": "0.1.1",
+  "icons": [
+    {
+      "src": "https://raw.githubusercontent.com/rdcahalane/genome-mcp/main/icon.png",
+      "mimeType": "image/png",
+      "sizes": [
+        "256x256"
+      ]
+    }
+  ],
+  "version": "0.1.2",
   "packages": [
     {
       "registryType": "pypi",
